@@ -57,7 +57,7 @@ func Execute() {
 
 func init() {
     rootCmd.PersistentFlags().BoolVar(&noBanner, "no-banner", false, "Do not display the banner")
-	rootCmd.PersistentFlags().StringVarP(&classes.UserAgent, "useragent",  "U",   "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0", "User-Agent string sent in HTTP requests.")
+	rootCmd.PersistentFlags().StringVarP(&classes.UserAgent, "useragent",  "U",   "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36", "User-Agent string sent in HTTP requests.")
 	rootCmd.PersistentFlags().StringVarP(&classes.ClientID, "clientID",  "c", "1fec8e78-bce4-4aaf-ab1b-5451cc387264", "client ID to request token for. Default - MS Teams. Reasons for customising this might be to enumerate for an MFA gap, or getting different token scopes. To redeem tokens from a refresh token obtained the intune bypass, use -c 9ba1a5c7-f17a-4de9-a1f1-6178c8d51223.")
     rootCmd.PersistentFlags().StringVarP(&classes.Scope, "scope", "s", "openid offline_access", "scope to request token for.")
     rootCmd.PersistentFlags().BoolVarP(&showVersion, "version", "v", false, "Print version and exit")
