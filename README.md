@@ -18,7 +18,7 @@ go get .
 go build -o tokensmith main.go
 
 # to build for Windows
-GOOS=WINDOWS go build -o tokensmith.exe main.go
+GOOS=windows go build -o tokensmith.exe main.go
 ```
     
 ### Use a Release
