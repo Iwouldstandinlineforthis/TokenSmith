@@ -41,11 +41,15 @@ The default combination of client ID & resource should work out of the box in a 
 ./tokensmith authcode [-c client_id] [-r resource] [-R redirect_uri]
 ```
 
-Alternatively, if you need to bypassing Intune Compliant device Conditional Access, add the `--intune-bypass` flag:
+**Authcode Flow with Intune Bypass**
+
+Additionally, if you need to bypassing Intune Compliant device Conditional Access, add the `--intune-bypass` flag:
 
 ```
 ./tokensmith authcode --intune-bypass [optional flags]
 ```
+
+https://github.com/user-attachments/assets/0445c5ec-7f5b-4055-bace-6fb4e74073af
  
 **Step 2** - Authenticate on a web browser using the link TokenSmith generates.
 
