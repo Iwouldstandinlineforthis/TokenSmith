@@ -11,7 +11,7 @@ func PrintBanner() {
  / / / /_/ / ,< /  __/ / / /__/ / / / / / / / /_/ / / /
 /_/  \____/_/|_|\___/_/ /_/____/_/ /_/ /_/_/\__/_/ /_/ 
 
-               by Sunny Chau (@glastomych) JUMPSEC Labs  
+              by Sunny Chau (@gladstomych) JUMPSEC Labs  
                                                Dec 2024
 =======================================================
 `

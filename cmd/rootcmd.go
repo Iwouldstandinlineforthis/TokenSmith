@@ -12,7 +12,7 @@ import (
 var (
 	noBanner    bool
 	showVersion bool
-	version     = "v0.8"
+	version     = "v0.9"
 )
 
 var rootCmd = &cobra.Command{
