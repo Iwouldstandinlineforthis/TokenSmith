@@ -1,9 +1,9 @@
 package auth
 
 import (
-    "fmt"
+	"fmt"
 )
 
 func GetTknFromDevCode() {
-    fmt.Println("TODO. Not yet implemented.")
+	fmt.Println("TODO. Not yet implemented.")
 }

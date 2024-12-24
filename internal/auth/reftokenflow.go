@@ -1,29 +1,32 @@
 package auth
 
 import (
-    "fmt"
+	"fmt"
+	"io"
+	"log"
 	"net/http"
-    "io"
-    "strings"
-    "log"
+	"strings"
 
 	"github.com/gladstomych/tokensmith/internal/classes"
 )
 
 func GetAccTknFromRefTkn() {
-    fmt.Println("Obtaining New Access Tokens from Refresh tokens.")
+	fmt.Println("Obtaining New Access Tokens from Refresh tokens.")
 
-    clientID := classes.ClientID
-    resourceURL := classes.RefResourceURL
-    scope := classes.Scope
-    refToken := classes.RefreshToken
-    userAgent := classes.UserAgent
+	clientID := classes.ClientID
+	resourceURL := classes.RefResourceURL
+	scope := classes.Scope
+	refToken := classes.RefreshToken
+	userAgent := classes.UserAgent
 
-    // redeemedHTTPResp := reqAccessTknFlow(clientID, scope, refToken, resourceURL, userAgent)
-    reqAccessTknFlow(clientID, scope, refToken, resourceURL, userAgent)
+	// redeemedHTTPResp := reqAccessTknFlow(clientID, scope, refToken, resourceURL, userAgent)
+	err := reqAccessTknFlow(clientID, scope, refToken, resourceURL, userAgent)
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
 
-func reqAccessTknFlow(clientID, scope, refToken, resource, userAgent string) {
+func reqAccessTknFlow(clientID, scope, refToken, resource, userAgent string) error {
 
 	tokenURL := classes.TokenV1Endpoint
 	body := fmt.Sprintf("client_id=%s&grant_type=refresh_token&scope=%s&resource=%s&refresh_token=%s", clientID, scope, resource, refToken)
@@ -44,16 +47,17 @@ func reqAccessTknFlow(clientID, scope, refToken, resource, userAgent string) {
 	defer resp.Body.Close()
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatalln(err)
+		return err
 	}
 
-    var ptr *classes.TokenResponse
-    ptr, err = parseRespTokens(string(respBody))
-    if err != nil {
-        log.Fatalln(err)
-    }
+	//var ptr *classes.TokenResponse
+	err = parseRespTokens(string(respBody))
+	if err != nil {
+		return err
+	}
 
-    fmt.Println(ptr)
+	return nil
+
 }
 
 // GOAL:

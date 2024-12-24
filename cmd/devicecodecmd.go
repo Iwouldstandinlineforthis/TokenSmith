@@ -13,11 +13,11 @@ var devicecodeCmd = &cobra.Command{
 Often only used by offensive tooling and hence we consider it opsec unsafe. 
 `,
 	Run: func(cmd *cobra.Command, args []string) {
-         // if len(args) == 0 && cmd.Flags().NFlag() == 0 {
-         //    cmd.Help()
-         //    return       
-        // }
-        auth.GetTknFromDevCode()
+		// if len(args) == 0 && cmd.Flags().NFlag() == 0 {
+		//    cmd.Help()
+		//    return
+		// }
+		auth.GetTknFromDevCode()
 	},
 }
 

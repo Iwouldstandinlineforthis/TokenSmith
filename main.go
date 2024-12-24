@@ -1,6 +1,5 @@
 /*
 Copyright © 2024 JUMPSEC Labs  - Sunny Chau @gladstomych
-
 */
 package main
 
