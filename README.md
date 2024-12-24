@@ -41,9 +41,11 @@ The default combination of client ID & resource should work out of the box in a 
 ./tokensmith authcode [-c client_id] [-r resource] [-R redirect_uri]
 ```
 
+https://github.com/user-attachments/assets/988bda2a-cf00-4f20-94c0-61bfe49f5a0c
+
 **Authcode Flow with Intune Bypass**
 
-Additionally, if you need to bypassing Intune Compliant device Conditional Access, add the `--intune-bypass` flag:
+Additionally, if you need to bypassing Intune Compliant device Conditional Access, add the `--intune-bypass` flag (or simply `-i`):
 
 ```
 ./tokensmith authcode --intune-bypass [optional flags]
@@ -53,7 +55,7 @@ https://github.com/user-attachments/assets/0445c5ec-7f5b-4055-bace-6fb4e74073af
  
 **Step 2** - Authenticate on a web browser using the link TokenSmith generates.
 
-**Step 3** - Paste the redirecting URI after authenticating into the tokensmith (refer to the blog post at [JUMPSEC labs](https://labs.jumpsec.com) if this bit seems confusing), and press RETURN. If all goes well, you should see:
+**Step 3** - Paste the redirecting URI after authenticating into the tokensmith. Refer to the [companion blog post at JUMPSEC labs](https://labs.jumpsec.com/?p=20523) for more details), and press RETURN. If all goes well, you should see:
 
 ```
 ...
@@ -105,7 +107,6 @@ Users are free to choose to authenticate on whichever browser they fancy, using 
 
 **Note that**: The interactive authentication can stay on the beachhead device and the operator does not need to worry about running a BOF or a foreign binary to risk detection. They only need to copy URLs to and from the endpoint.
 
-This separation is central to the tool's design and we'll explain further in our blog post on [JUMPSEC LABS](https://labs.jumpsec.com).
  
 ## Features and Roadmap
 Currently Supported Flows:
