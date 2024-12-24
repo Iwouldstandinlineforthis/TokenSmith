@@ -1,5 +1,7 @@
 # TokenSmith
 
+![Banner of TokenSmith](media/tokensmith_banner.png)
+
 TokenSmith generates Entra ID access & refresh tokens on offensive engagements. Built with OpSec in mind it is suitable for both covert adversary simulations, penetration tests or sysadmin tasks. The tokens generated works out of the box with many popular Azure offensive tools.
 
 ***TL;DR*** - Run `./tokensmith authcode` and authenticate using the generated URL in a browser, then paste the relevant redirected URI with the `code` parameter back to the CLI tool, and it will redeem the usable tokens for you.
