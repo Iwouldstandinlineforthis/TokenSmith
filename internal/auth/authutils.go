@@ -45,3 +45,35 @@ func parseRespTokens(respBody string) error {
 	//return &tr, nil //in case you want to return the response for something in future
 	return nil
 }
+
+func parseDeviceAuthorizationResponse(respBody string) (string, string, string, error) {
+	var dcr classes.DeviceAuthorizationResponse
+	err := json.Unmarshal([]byte(respBody), &dcr)
+	if err != nil {
+		fmt.Errorf("response is not valid JSON: %w", err)
+		return "", "", "", err
+	}
+
+	return dcr.VerificationURL, dcr.DeviceCode, dcr.UserCode, nil
+}
+
+func parseDeviceAuthRespTokens(respBody string) error {
+	var tr classes.DeviceCodeAuthenticationResponse
+	err := json.Unmarshal([]byte(respBody), &tr)
+	if err != nil {
+		return fmt.Errorf("response is not valid JSON: %w", err)
+	}
+
+	// Check all required fields
+	if tr.AccessToken == "" || tr.Scope == "" {
+		return fmt.Errorf("Token parsing error: missing one or more required fields (access_token, scope). Raw response: %s", respBody)
+	}
+
+	fmt.Println("\n[+] SUCCESSFULLY REDEEMED TOKEN!")
+	// Print the tokens nicely
+	fmt.Printf("\n[+] Access Token: \n============================\n%s\n", tr.AccessToken)
+	fmt.Printf("\n[+] Scope: \n=============================\n%s\n", tr.Scope)
+	fmt.Printf("\n[+] Resource: \n=============================\n%s\n", classes.ResourceURL)
+
+	return nil
+}

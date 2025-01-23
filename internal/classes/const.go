@@ -13,5 +13,6 @@ var RefreshToken string   // "0.A.."
 const AuthorizeV2Endpoint string = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
 const TokenV2Endpoint string = "https://login.microsoftonline.com/common/oauth2/v2.0/token"
 const TokenV1Endpoint string = "https://login.microsoftonline.com/common/oauth2/token"
+const DeviceCodeEndpoint string = "https://login.microsoftonline.com/common/oauth2/devicecode"
 
 // const TokenV2Endpoint string = "http://localhost:8000/post"

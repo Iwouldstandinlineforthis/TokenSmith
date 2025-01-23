@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"github.com/gladstomych/tokensmith/internal/auth"
+	"github.com/gladstomych/tokensmith/internal/classes"
 	"github.com/spf13/cobra"
 )
 
@@ -23,4 +24,5 @@ Often only used by offensive tooling and hence we consider it opsec unsafe.
 
 func init() {
 	rootCmd.AddCommand(devicecodeCmd)
+	devicecodeCmd.Flags().StringVarP(&classes.ResourceURL, "resource", "r", "urn:ms-drs:enterpriseregistration.windows.net", "Resource URL to request token for.")
 }
